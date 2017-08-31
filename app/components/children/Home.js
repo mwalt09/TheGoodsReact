@@ -8,15 +8,17 @@ var Home = React.createClass({
   	render: function() {
 
    		return (
-   			<div>
-   				<p>
-           		 	<Link to="/Home/RentedItems"><button className="btn btn-primary btn-lg">Their Goods</button></Link>
-            		<Link to="/Home/YourItems"><button className="btn btn-danger btn-lg">Your Goods</button></Link>
-          		</p>
-   			</div>
-   			<div>
-   				{this.props.children}
-			</div>
+        <div>
+     			<div>
+     				<p>
+             	<Link to="/Home/RentedItems"><button className="btn btn-primary btn-lg">Their Goods</button></Link>
+              <Link to="/Home/YourItems"><button className="btn btn-danger btn-lg">Your Goods</button></Link>
+            </p>
+     			</div>
+     			<div>
+     				{this.props.children}
+  			  </div>
+        </div>
 		);
   	}
 });

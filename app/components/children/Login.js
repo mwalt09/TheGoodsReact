@@ -8,15 +8,17 @@ var Login = React.createClass({
   	render: function() {
 
    		return (
-   			<div>
-   				<p>
-           		 	<Link to="/Login/SignIn"><button className="btn btn-primary btn-lg">Login</button></Link>
-            		<Link to="/Login/SignUp"><button className="btn btn-danger btn-lg">Sign Up</button></Link>
-          		</p>
-   			</div>
-   			<div>
-				{this.props.children}
-			</div>
+        <div>
+     			<div>
+     				<p>
+             	<Link to="/Login/SignIn"><button className="btn btn-primary btn-lg">Login</button></Link>
+              <Link to="/Login/SignUp"><button className="btn btn-danger btn-lg">Sign Up</button></Link>
+            </p>
+     			</div>
+       		<div>
+    				{this.props.children}
+    			</div>
+        </div>
 		);
   	}
 });
