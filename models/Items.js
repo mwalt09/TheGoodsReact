@@ -15,16 +15,16 @@ var ItemsSchema = new Schema({
     type: String
   },
   price: {
-    type: 
+    type: String
   },
   image:{
-  	type:
+  	type:String
   },
   availability:{
-  	type:
+  	type:String
   },
   earned:{
-  	type:
+  	type:String
   }
 });
 
