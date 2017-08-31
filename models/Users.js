@@ -15,10 +15,10 @@ var UserSchema = new Schema({
     type: String
   },
   price: {
-    type: 
+    type: String
   },
   accountForRecievingMoney:{
-    type:
+    type:String
   }
 });
 

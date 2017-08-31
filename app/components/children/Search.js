@@ -8,15 +8,17 @@ var Search = React.createClass({
   	render: function() {
 
    		return (
-   			<div>
-   				<p>
-           		 	<Link to="/Search/Results"><button className="btn btn-primary btn-lg">Results</button></Link>
-            		<Link to="/Search/Details"><button className="btn btn-danger btn-lg">Details</button></Link>
-          		</p>
-   			</div>
-   			<div>
-				{this.props.children}
-			</div>
+        <div>
+     			<div>
+     				<p>
+             	<Link to="/Search/Results"><button className="btn btn-primary btn-lg">Results</button></Link>
+              <Link to="/Search/Details"><button className="btn btn-danger btn-lg">Details</button></Link>
+            </p>
+     			</div>
+     			<div>
+  				{this.props.children}
+  			  </div>
+      </div>
 		);
   	}
 });
