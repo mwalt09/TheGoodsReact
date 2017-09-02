@@ -12,6 +12,8 @@ var Main = React.createClass({
   render: function() {
 
     return (
+
+
     	<div className="container">
         	<div>
    				<NavBar />
@@ -19,7 +21,7 @@ var Main = React.createClass({
           	<div>
           		{this.props.children}
           	</div>
-      	</div>
+      </div>
     );
   }
 });
