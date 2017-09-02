@@ -15,8 +15,8 @@ var NavBar = React.createClass({
                 <Link to="/Search"><button className="btn btn-danger btn-lg">Search</button></Link>
                 <Link to="/Login"><button className="btn btn-danger btn-lg">Login</button></Link>
               </p>
+            </div>
         </div>
-      </div>
 		);
   	}
 });
