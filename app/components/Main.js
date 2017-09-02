@@ -3,7 +3,10 @@ var React = require("react");
 // Including the Link component from React Router to navigate within our application without full page reloads
 var Link = require("react-router").Link;
 
+import NavBar from "./children/Navbar.js";
+
 var Main = React.createClass({
+
 
   // Here we render the function
   render: function() {
@@ -11,11 +14,7 @@ var Main = React.createClass({
     return (
     	<div className="container">
         	<div>
-   				<p>
-           		 	<Link to="/Home"><button className="btn btn-primary btn-lg">Home</button></Link>
-            		<Link to="/Search"><button className="btn btn-danger btn-lg">Search</button></Link>
-            		<Link to="/Login"><button className="btn btn-danger btn-lg">Login</button></Link>
-          		</p>
+   				<NavBar />
    			</div>
           	<div>
           		{this.props.children}
