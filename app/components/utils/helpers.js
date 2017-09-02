@@ -4,6 +4,18 @@ var axios = require("axios");
 
 // Helper functions for making API Calls
 var helper = {
+// calls for the search page
+
+  // one that is the actual search (get)
+getSearch: function() {
+  return axios.get("/api/search");
+},
+
+  // one that is an update (posts an update to the 'rented')
+putAvailable: function(available) {
+  return axios.update("/api/", { availablility: availability });
+}
+};
 
   // // This function serves our purpose of running the query to geolocate.
   // runQuery: function() {
