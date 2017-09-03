@@ -5,6 +5,8 @@ var Link = require("react-router").Link;
 
 import NavBar from "./children/Navbar.js";
 
+
+
 var Main = React.createClass({
 
 
@@ -12,14 +14,19 @@ var Main = React.createClass({
   render: function() {
 
     return (
-    	<div className="container">
+
+
+    	<div>
         	<div>
-   				<NavBar />
-   			</div>
+   				    <NavBar />
+   			  </div>
           	<div>
           		{this.props.children}
+
           	</div>
-      	</div>
+      </div>
+
+
     );
   }
 });
