@@ -1,6 +1,8 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+console.log("Imported Items");
+
 var ItemsSchema = new Schema({
   itemName:{
   	type: String
