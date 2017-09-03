@@ -1,6 +1,18 @@
 var React = require("react");
 // Including the Link component from React Router to navigate within our application without full page reloads
 var Link = require("react-router").Link;
+var ReactBootstrap = require("react-bootstrap");
+var Navbar = ReactBootstrap.Navbar,
+Nav = ReactBootstrap.Nav,
+NavItem = ReactBootstrap.NavItem,
+DropdownButton = ReactBootstrap.DropdownButton,
+MenuItem = ReactBootstrap.MenuItem,
+NavDropdown = ReactBootstrap.NavDropdown;
+
+function handleSelect(selectedKey) {
+  alert('selected ' + selectedKey);
+}
+
 
 var NavBar = React.createClass({
 
@@ -8,15 +20,20 @@ var NavBar = React.createClass({
   	render: function() {
 
    		return (
-        <div className="container">
-          <div>
-          <p>
-                <Link to="/Home"><button className="btn btn-primary btn-lg">Home</button></Link>
-                <Link to="/Search"><button className="btn btn-danger btn-lg">Search</button></Link>
-                <Link to="/Login"><button className="btn btn-danger btn-lg">Login</button></Link>
-              </p>
-            </div>
-        </div>
+        <Navbar inverse collapseOnSelect>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="#">The Good$</a>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav pullRight>
+        <NavItem eventKey={1} href="/Search"><Link to="/Search">Search</Link></NavItem>
+        <NavItem eventKey={2} href="/Home"><Link to="/Home">Home</Link></NavItem>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 		);
   	}
 });

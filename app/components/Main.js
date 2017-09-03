@@ -14,14 +14,17 @@ var Main = React.createClass({
     return (
 
 
-    	<div className="container">
+    	<div>
         	<div>
-   				<NavBar />
-   			</div>
+   				    <NavBar />
+   			  </div>
           	<div>
           		{this.props.children}
+
           	</div>
       </div>
+
+
     );
   }
 });
