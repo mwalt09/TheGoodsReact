@@ -25,7 +25,7 @@ app.use(express.static("public"));
 // -------------------------------------------------
 
 // MongoDB Configuration configuration (Change this URL to your own DB)
-// mongoose.connect("mongodb://admin:codingrocks@ds023664.mlab.com:23664/reactlocate");
+mongoose.connect("mongodb://localhost/theGoodsReactdb");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
@@ -43,7 +43,7 @@ app.get("/", function(req, res) {
 
 // This is the route we will send GET requests to retrieve our most recent search data.
 app.get("/api/search", function(req, res) {
-  Item.find([]).sort([
+  Item.find({}).sort([
     ["id", "descending"]
     ]).limit(10).exec(function(err, doc) {
       if (err) {
@@ -100,6 +100,26 @@ app.post("/api", function(req, res) {
   //     res.send("Saved Search");
   //   }
   // });
+});
+
+app.post("/api/createItem", function(req, res) {
+  console.log("ITEMS: "+ req.body.itemName);
+  Items.create({
+    itemName: req.body.itemName,
+    category: req.body.category,
+    owner: req.body.owner,
+    location: req.body.location,
+    price: req.body.price,
+    image: req.body.image,
+    availabiltiy: req.body.availabiltiy,
+    earned: req.body.earned
+  }), function(error) {
+    if (error) {
+      console.log(error);
+    } else {
+      res.redirect("/");
+    }
+  };
 });
 
 app.listen(PORT, function(){
