@@ -42,8 +42,33 @@ app.get("/", function(req, res) {
 });
 
 // This is the route we will send GET requests to retrieve our most recent search data.
+app.get("/api/search", function(req, res) {
+  Item.find([]).sort([
+    ["id", "descending"]
+    ]).limit(10).exec(function(err, doc) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
 // We will call this route the moment our page gets rendered
-app.get("/api", function(req, res) {
+app.put("/api", function(req, res) {
+  console.log("BODY: " + req.body.availabiltiy);
+
+  Available.set({
+    availabiltiy: req.body.availabiltiy,
+    date: Date.now()
+  }, function(err) {
+    if (er) {
+      console.log(err);
+    }
+    else {
+      res.send("Saved Rent");
+    }
+  });
 
   // We will find all the records, sort it in descending order, then limit the records to 5
   // History.find({}).sort([
