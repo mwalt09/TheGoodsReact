@@ -1,5 +1,5 @@
 {
-  "name": "theGoods-react",
+  "name": "thegoods-react",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "start": "node server",
     "build": "webpack"
   },
-  "author": "Brent Gorwin, Jeffrey Nagy, Joseph Jaffe, Joseph Kohatsu, Mikael Walters ",
+  "author": "Brent Gorwin, Jeffrey Nagy, Joseph Jaffe, Joseph Kohatsu, Mikael Walters",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.12.0",
@@ -17,6 +17,7 @@
     "express": "^4.14.0",
     "mongoose": "^4.5.1",
     "morgan": "^1.7.0",
+    "path": "^0.12.7",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-router": "^2.4.1"
