@@ -3,39 +3,44 @@ var React = require("react");
 var Link = require("react-router").Link;
 var ReactBootstrap = require("react-bootstrap");
 var Navbar = ReactBootstrap.Navbar,
-Nav = ReactBootstrap.Nav,
-NavItem = ReactBootstrap.NavItem,
-DropdownButton = ReactBootstrap.DropdownButton,
-MenuItem = ReactBootstrap.MenuItem,
-NavDropdown = ReactBootstrap.NavDropdown;
+  Nav = ReactBootstrap.Nav,
+  NavItem = ReactBootstrap.NavItem,
+  DropdownButton = ReactBootstrap.DropdownButton,
+  MenuItem = ReactBootstrap.MenuItem,
+  NavDropdown = ReactBootstrap.NavDropdown;
+import {LinkContainer} from 'react-router-bootstrap';
 
 function handleSelect(selectedKey) {
   alert('selected ' + selectedKey);
 }
 
-
 var NavBar = React.createClass({
 
-  	// Here we render the component
-  	render: function() {
+  // Here we render the component
+  render: function() {
 
-   		return (
-        <Navbar inverse collapseOnSelect>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <a href="#">The Good$</a>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav pullRight>
-        <NavItem eventKey={1} href="/Search"><Link to="/Search">Search</Link></NavItem>
-        <NavItem eventKey={2} href="/Home"><Link to="/Home">Home</Link></NavItem>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-		);
-  	}
+    return (
+      <Navbar inverse collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="#">The Good$</a>
+          </Navbar.Brand>
+          <Navbar.Toggle/>
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <LinkContainer to="/Search">
+              <NavItem eventKey={1} >Search</NavItem>
+            </LinkContainer>
+
+            <LinkContainer to="/Home">
+              <NavItem eventKey={2} >Home</NavItem>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    );
+  }
 });
 
 // Export the component back for use in other files

@@ -5,6 +5,8 @@ var Link = require("react-router").Link;
 
 import NavBar from "./children/Navbar.js";
 
+
+
 var Main = React.createClass({
 
 
