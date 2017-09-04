@@ -7,19 +7,20 @@ import NavBar from "./children/Navbar.js";
 
 var Main = React.createClass({
 
-
   // Here we render the function
   render: function() {
 
     return (
-    	<div className="container">
-        	<div>
-   				<NavBar />
-   			</div>
-          	<div>
-          		{this.props.children}
-          	</div>
-      	</div>
+      <div>
+        <div>
+          <NavBar/>
+        </div>
+        <div>
+          {this.props.children}
+
+        </div>
+      </div>
+
     );
   }
 });
