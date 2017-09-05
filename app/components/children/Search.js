@@ -1,11 +1,11 @@
 var React = require("react");
 var Results = require("./grandchildren/Results");
 var SearchBar = require("./grandchildren/SearchBar");
+var MapContainer = require("./grandchildren/Map");
 var helpers = require("../utils/helpers");
 // Including the Link component from React Router to navigate within our application without full page reloads
 var Link = require("react-router").Link;
 
-import { Container, Row, Col, Well, Media, Thumbnail, Button, Grid  } from 'react-bootstrap';
 
 
 
@@ -20,23 +20,32 @@ var Search = React.createClass({
 
   componentDidUpdate: function() {
     helpers.getSearch(this.state.searchTerm).then(function(response) {
-      console.log("response: " + JSON.stringify(response));
-      console.log("response data itemName: " + response.data[0].itemName);
-      // this.setState({itemName: ""});
-      console.log("this is the stat itemName: " + this.state.itemName);
+      // console.log("response: " + JSON.stringify(response));
+      // console.log("response data itemName: " + response.data[0].itemName);
+      // // this.setState({itemName: ""});
+      console.log("state item url: " + JSON.stringify(this.state.item.config.url));
+      console.log("response.url: " + response.config.url)
 
 
-      if (response.data[0].itemName !== this.state.itemName) {
+      if (response.config.url !== this.state.item.config.url) {
         console.log("we got to this point");
-        this.setState({ itemName : response.data[0].itemName });
+        this.setState({ item : response });
+      
       }
     }.bind(this));
   },
 
   // Here we set a generic state associated with the text being searched for
   getInitialState: function() {
-    return { term: "", itemName: ""
+    return { term: "",
+    item: {data:[],
+            config: {
+              url:""
+            }}
   };
+  },
+  setTerm: function(term) {
+    this.setState({ searchTerm: term });
   },
   	// Here we render the component
   	render: function() {
@@ -66,36 +75,23 @@ var Search = React.createClass({
         </Media.Body>
       </Media> */}
 
-      <Grid>
-        <Row>
-          <Col xs={6} md={4}>
-            <Thumbnail src="/assets/images/thumbnail.png" alt="242x200">
-              <h3>Thumbnail label</h3>
-              <p>Description</p>
-              <p>
-                <Button bsStyle="primary">Button</Button>&nbsp;
-                <Button bsStyle="default">Button</Button>
-              </p>
-            </Thumbnail>
-          </Col>
+       			<div className="col-md-6">
 
-          <div style={boxForMapBox}>
+            <SearchBar setTerm={this.setTerm} />
 
           </div>
-        </Row>
-      </Grid>
 
+        
 
+        <div className="row">
 
-       			<div>
-       				<p>
-               	<Link to="/Search/Results"><button className="btn btn-primary btn-lg">Results</button></Link>
-                <Link to="/Search/Details"><button className="btn btn-danger btn-lg">Details</button></Link>
-              </p>
-       			</div>
-       			<div>
-    				{this.props.children}
-    			  </div>
+          <Results item={this.state.item} />
+
+        </div>
+
+        <div className="row">
+         
+        </div>
     </div>
 
 		  );
