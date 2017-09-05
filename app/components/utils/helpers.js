@@ -7,8 +7,24 @@ var helper = {
 // calls for the search page
 
   // one that is the actual search (get)
-getSearch: function() {
-  return axios.get("/api/search");
+getSearch: function(searchParam) {
+  console.log("searchParam: " + searchParam);
+  return axios.get( "/api/search/?"+searchParam);
+
+
+  // .then(function(response) {
+  //   console.log("response: "+ JSON.stringify(response));
+  //   console.log("response.data: "+ response.data);
+  //   console.log("response.data.results: "+ response.data.results);
+  //   if (response.data[0] !== undefined) {
+  //     return response.data;
+  //   }
+  //   return ""
+
+    // ;
+  // }).catch(function (error) {
+  //   console.log(error);
+  // });
 },
 
   // one that is an update (posts an update to the 'rented')
@@ -35,20 +51,20 @@ putAvailable: function(available) {
   // },
 
   // This function hits our own server to retrieve the record of query results
-  getItem: function() {
-    return axios.get("/api", {
-      //ADD CODE
-    });
-  },
+//   getItem: function() {
+//     return axios.get("/api", {
+//       //ADD CODE
+//     });
+//   };
 
-  // This function posts new items to our database.
-  postItem: function(location) {
-    return axios.post("/api", { 
-      //ADD CODE
+//   // This function posts new items to our database.
+//   postItem: function(location) {
+//     return axios.post("/api", { 
+//       //ADD CODE
 
-    });
-  }
-};
+//     });
+  
+// };
 
 // We export the API helper
 module.exports = helper;
