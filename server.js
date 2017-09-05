@@ -42,14 +42,18 @@ app.get("/", function(req, res) {
 });
 
 // This is the route we will send GET requests to retrieve our most recent search data.
-app.get("/api/search", function(req, res) {
-  Item.find({}).sort([
-    ["id", "descending"]
-    ]).limit(10).exec(function(err, doc) {
+app.get("/api/search/", function(req, res) {
+  console.log("API/Search Hit");
+  var searchTerm = Object.keys(req.query)[0];
+  console.log("req.query key: " + searchTerm);
+
+
+  Items.find({"itemName": {$regex : ".*"+searchTerm+".*"}}).limit(10).exec(function(err, doc) {
       if (err) {
         console.log(err);
       }
       else {
+        // console.log("This is our doc: " + doc);
         res.send(doc);
       }
     });

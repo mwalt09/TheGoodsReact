@@ -1,13 +1,43 @@
 var React = require("react");
+var Results = require("./grandchildren/Results");
+var SearchBar = require("./grandchildren/SearchBar");
+var helpers = require("../utils/helpers");
 // Including the Link component from React Router to navigate within our application without full page reloads
 var Link = require("react-router").Link;
 
+import { Container, Row, Col, Well, Media, Thumbnail, Button, Grid  } from 'react-bootstrap';
+
+
+
+  // This function allows childrens to update the parent.
+  
 // Code from React-Bootstrap for Col.
 
-import { Container, Row, Col, Well, Media, Thumbnail, Button, Grid  } from 'react-bootstrap';
 
 var Search = React.createClass({
 
+// Creating the Search Form component
+
+  componentDidUpdate: function() {
+    helpers.getSearch(this.state.searchTerm).then(function(response) {
+      console.log("response: " + JSON.stringify(response));
+      console.log("response data itemName: " + response.data[0].itemName);
+      // this.setState({itemName: ""});
+      console.log("this is the stat itemName: " + this.state.itemName);
+
+
+      if (response.data[0].itemName !== this.state.itemName) {
+        console.log("we got to this point");
+        this.setState({ itemName : response.data[0].itemName });
+      }
+    }.bind(this));
+  },
+
+  // Here we set a generic state associated with the text being searched for
+  getInitialState: function() {
+    return { term: "", itemName: ""
+  };
+  },
   	// Here we render the component
   	render: function() {
       var boxForMapBox = {
