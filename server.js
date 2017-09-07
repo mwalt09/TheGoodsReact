@@ -113,6 +113,7 @@ app.post("/api/createItem", function(req, res) {
     category: req.body.category,
     owner: req.body.owner,
     location: req.body.location,
+    geocode: req.body.geocode,
     price: req.body.price,
     image: req.body.image,
     availabiltiy: req.body.availabiltiy,
