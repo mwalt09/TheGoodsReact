@@ -21,12 +21,17 @@ var MapResults = React.createClass({
 
   // Here we render the function
   render: function() {
+
     return (
+      
        <Map
+       className="boxForMapBox"
             style="mapbox://styles/mapbox/streets-v9"
             containerStyle={{
-              height: "100vh",
-              width: "100vw"
+              height: "350",
+              width: "100%",
+              marginRight: "20"
+
             }}
             center= {[  -97.7427778,30.2669444 ]}>
               <Layer
@@ -37,11 +42,7 @@ var MapResults = React.createClass({
                 
               </Layer>
 
-              <Marker
-                coordinates={[-0.2416815, 51.5285582]}
-                anchor="bottom">
-                <img src={markerUrl}/>
-              </Marker>
+              
           </Map>
     );
   }

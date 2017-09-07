@@ -9,7 +9,7 @@ var Link = require("react-router").Link;
 
 
 
-
+import { Container, Row, Col, Well, Media, Thumbnail, Button, Grid  } from 'react-bootstrap';
   // This function allows childrens to update the parent.
   
 // Code from React-Bootstrap for Col.
@@ -50,14 +50,7 @@ var Search = React.createClass({
   },
   	// Here we render the component
   	render: function() {
-      var boxForMapBox = {
-        width: '60%',
-        height: 400,
-        border: 1,
-        borderColor: 'black',
-        borderStyle: 'solid',
-        float: 'left',
-      };
+      
       
    		return (
 
@@ -75,26 +68,25 @@ var Search = React.createClass({
           <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
         </Media.Body>
       </Media> */}
+          <Grid>
+       		<Row style={{marginRight: 0, marginLeft: 0}}>
+              <Col xs={12} md={6}>
+              <SearchBar setTerm={this.setTerm} />
+              <Results item={this.state.item} />
+            </Col>
 
-       			<div className="col-md-6">
+            <Col xs={12} md={6}>          
+              <MapResults />
 
-            <SearchBar setTerm={this.setTerm} />
+            </Col>
 
-          </div>
+           
 
+
+          </Row>
+          </Grid>
         
-
-        <div className="row">
-
-          <Results item={this.state.item} />
-
-        </div>
-
-        <div className="row">
-          
-          <MapResults/>
-
-        </div>
+        
     </div>
 
 		  );
