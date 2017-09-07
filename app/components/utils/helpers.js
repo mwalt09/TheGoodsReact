@@ -25,13 +25,13 @@ getSearch: function(searchParam) {
   // }).catch(function (error) {
   //   console.log(error);
   // });
-};
+},
 
 // Requesting Geocode from Mapbox API
 getGeocode: function(location){
   console.log ("geocode request for: " + location);
   return axios.get("/geocoding/v5/mapbox.places/" + location +".json");
-};
+},
 
 
   // one that is an update (posts an update to the 'rented')
