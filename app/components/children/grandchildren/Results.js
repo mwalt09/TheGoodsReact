@@ -1,7 +1,7 @@
 // Include React
 var React = require("react");
 
-import { Container, Row, Col, Well, Media, Thumbnail, Button, Grid  } from 'react-bootstrap';
+import { Container, Row, Col, Well, Media, Thumbnail, Button, Grid, Panel  } from 'react-bootstrap';
 
 
 // Creating the Results component
@@ -18,35 +18,41 @@ var Results = React.createClass({
   // Here we render the function
   render: function() {
     return (
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title text-center">Results</h3>
-        </div>
-        <div className="panel-body text-center">
+      <Row>
+        
+          <h3 className="text-center">Results</h3>
+        
+        
 
         
 {/*###################################################*/}
 
 {this.props.item.data.map(function(search, i) {
             return (
-              <Grid key={i}>
-              <Row>
-              <Col xs={6} md={4}>
+              
+             
+              
+              <Col xs={12} md={6} key={i}  >
+             
                 <Thumbnail src={search.image}>
                 <h3>{search.itemName}</h3>
                 <p>{search.price}</p>
                 </Thumbnail>
+             
                 </Col>
-                </Row>
+              
 
-              </Grid>
+              
+              
             );
 })}
 
+  </Row>
 
-{/*###################################################*/}
-        </div>
-      </div>
+
+
+        
+     
     );
   }
 });

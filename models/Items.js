@@ -16,6 +16,9 @@ var ItemsSchema = new Schema({
   location: {
     type: String
   },
+  geocode:{
+    type:String
+  },
   price: {
     type: String
   },

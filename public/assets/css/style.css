@@ -1,6 +1,4 @@
-.container {
-  width: 100%;
-}
+
 
 body {
   background-image: url("/assets/images/backgroundReact2.jpg");
@@ -17,6 +15,9 @@ body {
     text-align: center;
     transition: 200ms;
     &:hover {
-      box-shadow: 0 0 2rem gray;
+    box-shadow: 0 0 2rem gray;
     }
 }
+
+
+

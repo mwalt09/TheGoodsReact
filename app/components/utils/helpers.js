@@ -27,6 +27,13 @@ getSearch: function(searchParam) {
   // });
 },
 
+// Requesting Geocode from Mapbox API
+getGeocode: function(location){
+  console.log ("geocode request for: " + location);
+  return axios.get("/geocoding/v5/mapbox.places/" + location +".json");
+},
+
+
   // one that is an update (posts an update to the 'rented')
 putAvailable: function(available) {
   return axios.update("/api/", { availablility: availability });

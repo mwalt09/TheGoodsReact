@@ -34,16 +34,11 @@ var SearchBar = React.createClass({
   render: function() {
    	return (
         <div>
-            <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title text-center">Search</h3>
-        </div>
-        <div className="panel-body text-center">
+            
+        
+        <div className="text-center">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <h4 className="">
-                <strong>Location</strong>
-              </h4>
 
               {/*
                 Note how each of the form elements has an id that matches the state.
@@ -55,20 +50,15 @@ var SearchBar = React.createClass({
                 type="text"
                 className="form-control text-center"
                 id="term"
+                placeholder="Search"
                 onChange={this.handleChange}
-                required
-              />
-              <br />
-              <button
-                className="btn btn-primary"
-                type="submit"
-              >
-                Submit
-              </button>
+                required />
+              
+              <button className="btn btn-primary"type="submit" style={{marginTop: 10}}>Submit</button>
             </div>
           </form>
         </div>
-      </div>
+     
                  <div>
                     {this.props.children}
                 </div>
